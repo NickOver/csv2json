@@ -4,7 +4,7 @@
 
 		private $fieldSeparator = ',';
 		private $rowSeparator = ';';
-		private $avoidFieldNumbers = null;
+		private $avoidFieldsNumber = null;
 		private $firstRowAsKey = true;
 
 		public function __construct($configArray = null){
@@ -53,7 +53,7 @@
 
 		private function prepareArray($csvString){
 			$this->rows = explode($this->rowSeparator, $csvString);
-			$this->avoidFieldsArray = explode(',', $this->avoidFieldNumbers);
+			$this->avoidFieldsArray = explode(',', $this->avoidFieldsNumber);
 			if($this->firstRowAsKey){
 				$this->keys = explode($this->fieldSeparator, trim($this->rows[0]));
 				$this->keys = $this->unsetAvoidingKeys($this->keys);
